@@ -15,7 +15,7 @@ const login = async e => {
     }
 
     try {
-        const url = '/login/API/login'
+        const url = '/login_prueba/API/login'
 
         const body = new FormData(formLogin);
 

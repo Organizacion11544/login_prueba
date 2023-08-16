@@ -14,11 +14,12 @@
             </div>
         </div>
         <div class="d-grid">
-            <button class="btn btn-primary" type="submit">Iniciar Sesión </button>
+            <button class="btn btn-primary" type="submit">Iniciar sesion</button>
         </div>
     </form>
     <div class="mt-3">
         <p class="mb-0 text-center">¿No tiene una cuenta?<a href="/login/reginstro" class="text-primary fw-bold ms-2">Registrarse</a></p>
     </div>
-    <script src="<?= asset('./buil/js/login/index.js') ?>"></script>
+    <script src="<?= asset('./build/js/login/index.js') ?>"></script>
+    
 </div>
