@@ -10,6 +10,7 @@
 </head>
 <body class="bg-image bg-opacity-50">
     <div class="bg-light bg-opacity-10 w-100" style="height: 100vh;">
+       
         <div class="container-fluid pt-5 mb-4">
 
             <?php echo $contenido; ?>
