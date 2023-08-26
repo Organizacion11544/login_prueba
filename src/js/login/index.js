@@ -2,24 +2,25 @@ import { validarFormulario, Toast } from "../funciones";
 
 const formLogin = document.querySelector('form')
 
+
 const login = async e => {
     e.preventDefault();
-
-    if (!validarFormulario(formLogin)) {
+   
+    if(!validarFormulario(formLogin)){
         Toast.fire({
             icon: 'info',
-            title: 'Debe llenar todos los campos'            
-        });
-        return;
+            title: 'Debe llenar todos los campos'
+        })
+        return
     }
 
     try {
-        const url = '/login_prueba/API/login';
+        const url = '/login_prueba/API/login'
 
         const body = new FormData(formLogin);
-
+        
         const headers = new Headers();
-        headers.append("X-Requested-With", "fetched");
+        headers.append("X-Requested-With", "fetch");
 
         const config = {
             method: 'POST',
@@ -29,24 +30,32 @@ const login = async e => {
 
         const respuesta = await fetch(url, config);
         const data = await respuesta.json();
-
-        const {codigo, mensaje, redireccion} = data;
+        
+        const {codigo, mensaje, detalle} = data;
         let icon = 'info';
         if(codigo == 1){
             icon = 'success'
-            window.location.href = redireccion
         }else if(codigo == 2){
             icon = 'warning'
         }else{
             icon = 'error'
+
         }
+        
         Toast.fire({
             title : mensaje,
             icon
+        }).then((e)=>{
+            if(codigo == 1){
+                location.href = '/login_prueba/menu'
+            }
         })
 
     } catch (error) {
         console.log(error);
-    }   
+    }
+
+    
 }
-formLogin.addEventListener('submit', login);
+
+formLogin.addEventListener('submit', login );
